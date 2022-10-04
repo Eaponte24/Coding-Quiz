@@ -1,0 +1,67 @@
+:root {
+    --dark: rgb(37, 37, 37);
+    --light: rgb(255, 255, 255);
+    --header: rgb(57, 122, 117);
+    }
+
+/*Global styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+    border: 1px solid red; 
+}
+
+body{
+    background-color: var(--dark);
+    overflow: hidden;
+}
+
+p {
+    color: white;
+    font-size: 13px;
+}
+
+button {
+    outline: none;
+    background-color: black;
+    color: var(--light);
+    font-size: 13px;
+}
+
+h1,
+h2 {
+    color: var(--header);
+}
+
+/* Outer container */
+
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 10px;
+    height: 100vh;
+}
+
+/* Top Bar styling */
+
+.top-section p {
+    float: right;
+}
+
+/* Inner container styling */
+
+.inner-container {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
+}
+
+/* Header/Intro styling */
+
+
+/* Main/Quiz styling */
