@@ -10,8 +10,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   
-    border: 1px solid red; 
+   /*
+    border: 1px solid red; */ 
 }
 
 body{
@@ -29,6 +29,15 @@ button {
     background-color: black;
     color: var(--light);
     font-size: 13px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h1{
+    font-size: 60px;
+    
 }
 
 h1,
@@ -62,6 +71,24 @@ h2 {
 }
 
 /* Header/Intro styling */
+.quiz-intro {
+    text-align: center;
+    margin: 5px;
+    margin-top: 350px;
+    line-height: 2;
+    }
+
+.quiz-intro p {
+    font-size: 20px;
+}
+
+.quiz-intro button {
+    background-color: rgba(194, 156, 62, 0.781);
+    font-size: 20px;
+    outline: 1px solid black;
+    border-radius: 25px;
+    width: 60px;
+}
 
 
 /* Main/Quiz styling */
