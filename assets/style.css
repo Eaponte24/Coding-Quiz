@@ -2,6 +2,7 @@
     --dark: rgb(37, 37, 37);
     --light: rgb(255, 255, 255);
     --header: rgb(57, 122, 117);
+    --buttons: rgb(194, 156, 62, 0.781);
     }
 
 /*Global styling */
@@ -40,6 +41,10 @@ h1{
     
 }
 
+h2 {
+    font-size: 50px;
+}
+
 h1,
 h2 {
     color: var(--header);
@@ -74,7 +79,7 @@ h2 {
 .quiz-intro {
     text-align: center;
     margin: 5px;
-    margin-top: 350px;
+    margin-top: 250px;
     line-height: 2;
     }
 
@@ -83,7 +88,7 @@ h2 {
 }
 
 .quiz-intro button {
-    background-color: rgba(194, 156, 62, 0.781);
+    background-color: var(--buttons);
     font-size: 20px;
     outline: 1px solid black;
     border-radius: 25px;
@@ -92,3 +97,27 @@ h2 {
 
 
 /* Main/Quiz styling */
+
+.quiz-content {
+    display: none;
+    text-align: center;
+    margin: 5px;
+    margin-top: 250px;
+    line-height: 2;
+    }
+
+ul {
+    list-style: none;
+    margin-left: 350px;
+}
+
+li {
+    background-color: var(--buttons);
+    margin: 35px;
+    width: 25%;
+    border-radius: 25px;
+    }
+
+li:hover {
+    cursor: pointer;
+}
