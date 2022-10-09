@@ -42,12 +42,19 @@ h1{
 }
 
 h2 {
-    font-size: 50px;
+    font-size: 30px;
 }
 
 h1,
 h2 {
     color: var(--header);
+}
+
+h3 {
+    font-size: 25px;
+    color: var(--light);
+    text-decoration: underline;
+    
 }
 
 /* Outer container */
@@ -108,7 +115,7 @@ h2 {
 
 ul {
     list-style: none;
-    margin-left: 350px;
+    margin-left: 310px;
 }
 
 li {
@@ -120,4 +127,14 @@ li {
 
 li:hover {
     cursor: pointer;
+}
+
+.next-Btn { 
+    outline: none;
+    background-color: var(--header);
+    color: var(--light);
+    font-size: 13px;
+    width: 50px;
+    height: 20px;
+
 }
