@@ -129,6 +129,10 @@ li:hover {
     cursor: pointer;
 }
 
+.quiz-options .disabled {
+    pointer-events: none;
+}
+
 .next-Btn { 
     outline: none;
     background-color: var(--header);

@@ -4,6 +4,7 @@ var quizIntro = document.querySelector('.quiz-intro');
 var quizContent = document.querySelector('.quiz-content');
 var listedOptions = document.querySelectorAll('li');
 var nextBtn = document.querySelector('.next-Btn')
+var optionsList= document.querySelector(".quiz-options");
 var secondsleft = 70;
 
  var quizQuestions = [
@@ -71,9 +72,6 @@ var timerInterval = setInterval(function() {
         clearInterval(timerInterval);
       }
 
-      if("Correct!"){
-        ;
-      }
 
  }, 1000);
 }
@@ -83,9 +81,9 @@ var questionCount = 0;
 //this is grabbing the questions from the array up top
 function showQuestions(index) {
   var quesText = document.querySelector(".quiz-questions");
-  var optionsList= document.querySelector(".quiz-options");
   
-  var questTag = "<h2>"+ quizQuestions[index].question +"</h2>" ;
+  
+  var questTag = "<h2>"+ quizQuestions[index].number + ". " + quizQuestions[index].question +"</h2>" ;
   var optionsTag = "<ul><li class='option'>"+ quizQuestions[index].options[0] +"</li><li class='option'>"+ quizQuestions[index].options[1] +"</li><li class='option'>"+ quizQuestions[index].options[2] +"</li><li class='option'>"+ quizQuestions[index].options[3] +"</li></ul>"
 
   quesText.innerHTML = questTag;
@@ -108,10 +106,11 @@ nextBtn.addEventListener('click', function() {
   }
 })
 
+// this is checking if what they selected was correct or not and adds the html Correct or Wrong! and adds 10 seconds when you get a question right and subtracts 10 when wrong.
 function optionSelected(answer) {
   var userAnswer = answer.textContent;
   var correctAnswer = quizQuestions[questionCount].answer;
-  
+  var allOptions = optionsList.children.length;
 
   var correctPop = document.querySelector(".outcome-popup");
   var correctTag = "<h3> Correct! Good job! </h3>";
@@ -121,17 +120,23 @@ function optionSelected(answer) {
   
     if (userAnswer == correctAnswer) {
       correctPop.innerHTML = correctTag;
-      
+      secondsleft = secondsleft + 10;
+      timeEl.innerHTML = secondsleft
       console.log("Correct!");
     }else{
       wrongPop.innerHTML = wrongTag;
+      secondsleft = secondsleft - 10;
+      timeEl.innerHTML = secondsleft
       console.log("Wrong!");
+    }
+
+    // this for loop is adding diabled class to all the list options and the style i have for diabled is the pointer action to do nothing so you cant choose anything after
+    for (var i = 0; i < allOptions; i++) {
+      optionsList.children[i].classList.add("disabled");
     }
 
    
 }
-
-
 
 // when start button is clicked it starts the timer and hides the quiz intro
 startBtn.addEventListener('click', function() {
