@@ -7,7 +7,6 @@ var nextBtn = document.querySelector('.next-Btn')
 var optionsList = document.querySelector(".quiz-options");
 
 var resultsScreen = document.querySelector(".results")
-var restartBtn = document.querySelector(".restart-btn")
 var quitBtn = document.querySelector(".quit-btn")
 
 var secondsleft = 70;
@@ -112,9 +111,6 @@ nextBtn.addEventListener('click', function() {
     console.log("questions completed");
     showResults();
   }
-
-  
-  
 })
 
 // this is checking if what they selected was correct or not and adds the html Correct or Wrong! and adds 10 seconds when you get a question right and subtracts 10 when wrong. as well as the player score is being tracked here
@@ -178,5 +174,8 @@ startBtn.addEventListener('click', function() {
     setTime()   
 })
 
+quitBtn.addEventListener('click', function() {
+  window.location.reload();
+})
 
 
