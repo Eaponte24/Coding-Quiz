@@ -179,3 +179,22 @@ li:hover {
     height: 20px;
     margin: 15px;
 }
+
+@media screen and (max-width: 1000px) {
+
+    ul {
+        align-items: center;
+        margin:5px;
+        margin-left: 85px;
+    }
+    
+    li {
+      
+        background-color: var(--buttons);
+        width: 40%;
+        right: 600px;
+        font-size: 15px;
+        
+       }
+
+}
