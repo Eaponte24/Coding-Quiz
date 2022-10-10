@@ -4,8 +4,14 @@ var quizIntro = document.querySelector('.quiz-intro');
 var quizContent = document.querySelector('.quiz-content');
 var listedOptions = document.querySelectorAll('li');
 var nextBtn = document.querySelector('.next-Btn')
-var optionsList= document.querySelector(".quiz-options");
+var optionsList = document.querySelector(".quiz-options");
+
+var resultsScreen = document.querySelector(".results")
+var restartBtn = document.querySelector(".restart-btn")
+var quitBtn = document.querySelector(".quit-btn")
+
 var secondsleft = 70;
+var playerScore = 0;
 
  var quizQuestions = [
   {
@@ -96,17 +102,22 @@ function showQuestions(index) {
   }
 }
 
-// Next btn function
+// Next btn function, and will show the results at the end of all the questions are cylced through
 nextBtn.addEventListener('click', function() {
   if (questionCount < quizQuestions.length - 1) {
     questionCount++;
     showQuestions(questionCount);
+    nextBtn.style.display = "none";
   } else {
     console.log("questions completed");
+    showResults();
   }
+
+  
+  
 })
 
-// this is checking if what they selected was correct or not and adds the html Correct or Wrong! and adds 10 seconds when you get a question right and subtracts 10 when wrong.
+// this is checking if what they selected was correct or not and adds the html Correct or Wrong! and adds 10 seconds when you get a question right and subtracts 10 when wrong. as well as the player score is being tracked here
 function optionSelected(answer) {
   var userAnswer = answer.textContent;
   var correctAnswer = quizQuestions[questionCount].answer;
@@ -119,6 +130,7 @@ function optionSelected(answer) {
   var wrongTag = "<h3> Wrong! Next time! </h3>";
   
     if (userAnswer == correctAnswer) {
+      playerScore += 1;
       correctPop.innerHTML = correctTag;
       secondsleft = secondsleft + 10;
       timeEl.innerHTML = secondsleft
@@ -135,7 +147,26 @@ function optionSelected(answer) {
       optionsList.children[i].classList.add("disabled");
     }
 
+   nextBtn.style.display = "inline";
+}
+
+// this function is handling what to say when the player gets certain scores 
+function showResults() {
+  quizContent.setAttribute("style", "display: none")
+  resultsScreen.setAttribute("style", "display: block")
+
+  var scoreText = document.querySelector(".score-text");
    
+  if (playerScore > 3) {
+      var scoreTag = '<p>Congrats! You got <span>'+ playerScore +'</span> out of 5! Good Job!</p>';
+      scoreText.innerHTML = scoreTag;
+    }else if (playerScore > 1) {
+      var scoreTag = '<p>Great! You got <span>'+ playerScore +'</span> out of 5! Sweet!</p>';
+      scoreText.innerHTML = scoreTag;
+    }else{
+      var scoreTag = '<p>Oof! You only got <span>'+ playerScore +'</span> out of 5! Try again!</p>';
+      scoreText.innerHTML = scoreTag;
+    }
 }
 
 // when start button is clicked it starts the timer and hides the quiz intro
