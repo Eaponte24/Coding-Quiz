@@ -81,7 +81,7 @@ h4 {
 /* Inner container styling */
 
 .inner-container {
-    background: rgba(0, 0, 0, 0.5);
+
     height: 100%;
     width: 50%;
     margin: 0 auto;
@@ -91,7 +91,7 @@ h4 {
 .quiz-intro {
     text-align: center;
     margin: 5px;
-    margin-top: 250px;
+    margin-top: 150px;
     line-height: 2;
     }
 
@@ -114,13 +114,13 @@ h4 {
     display: none;
     text-align: center;
     margin: 5px;
-    margin-top: 250px;
+    margin-top: 150px;
     line-height: 2;
     }
 
 ul {
     list-style: none;
-    margin-left: 310px;
+    margin-left: 360px;
 }
 
 li {

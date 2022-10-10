@@ -6,10 +6,14 @@ var listedOptions = document.querySelectorAll('li');
 var nextBtn = document.querySelector('.next-Btn')
 var optionsList = document.querySelector(".quiz-options");
 
-var resultsScreen = document.querySelector(".results")
-var quitBtn = document.querySelector(".quit-btn")
+var resultsScreen = document.querySelector(".results");
+var quitBtn = document.querySelector(".quit-btn");
+var saveBtn = document.querySelector(".save-btn");
+var usernmeInput = document.querySelector(".username");
 
-var secondsleft = 70;
+
+
+var secondsleft = 30;
 var playerScore = 0;
 
  var quizQuestions = [
@@ -65,7 +69,7 @@ var playerScore = 0;
 
 
 
-// this the timer function
+// this the timer function that when the timer hits zero it will reload the page to retry the quiz
 function setTime() {
     
 var timerInterval = setInterval(function() {
@@ -75,6 +79,7 @@ var timerInterval = setInterval(function() {
       if(secondsleft === 0) {
         // Stops execution of action at set interval
         clearInterval(timerInterval);
+        showResults();
       }
 
 
@@ -113,7 +118,7 @@ nextBtn.addEventListener('click', function() {
   }
 })
 
-// this is checking if what they selected was correct or not and adds the html Correct or Wrong! and adds 10 seconds when you get a question right and subtracts 10 when wrong. as well as the player score is being tracked here
+// this is checking if what they selected was correct or not and adds the html Correct or Wrong! and adds 10 seconds when you get a question right and subtracts 5 when wrong. as well as the player score is being tracked here
 function optionSelected(answer) {
   var userAnswer = answer.textContent;
   var correctAnswer = quizQuestions[questionCount].answer;
@@ -133,7 +138,7 @@ function optionSelected(answer) {
       console.log("Correct!");
     }else{
       wrongPop.innerHTML = wrongTag;
-      secondsleft = secondsleft - 10;
+      secondsleft = secondsleft - 5;
       timeEl.innerHTML = secondsleft
       console.log("Wrong!");
     }
@@ -178,4 +183,29 @@ quitBtn.addEventListener('click', function() {
   window.location.reload();
 })
 
+
+// highscore script
+
+saveBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  
+  var username = {
+    usernmeInput: usernmeInput.value,
+    playerScore: playerScore,
+    
+  };
+  
+  localStorage.setItem("username", JSON.stringify(username));
+  console.log(username);
+
+  submitScore();
+  });
+
+  function submitScore() {
+    var lastScore = JSON.parse(localStorage.getItem("username"));
+    if (lastScore !== null) {
+      document.querySelector(".message").textContent = lastScore.usernmeInput + 
+      " got a " + lastScore.playerScore
+    }
+  }
 
